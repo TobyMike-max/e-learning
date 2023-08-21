@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import SideIcons from '../components/SideIcons'
 import Logo from '../components/Logo'
+import Navbar from '../components/Navbar'
+import Card from '../components/Card'
 import fake from '../assets/nav'
 
 export default function Dashboard() {
@@ -14,8 +16,20 @@ export default function Dashboard() {
 				))}
 				<p className="absolute text-xs opacity-50 bottom-5">2023 Academyis App</p>
 			</div>
-			<div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff]">
-				Right part
+			<div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-row px-3">
+				<div className="basis-3/4 px-3">
+					<Navbar />
+					<div className="flex my-3">
+						<Card />
+						<Card />
+						<Card />
+					</div>
+					<div className="flex my-4">
+						<div className="basis-2/3 shadow-md max-h-max mr-3">This Week</div>
+						<div className="basis-1/3 shadow-md max-h-max mr-3">Activities</div>
+					</div>
+				</div>
+				<div className="basis-1/4">Calender</div>
 			</div>
 		</div>
 	)
