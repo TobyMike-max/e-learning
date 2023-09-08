@@ -13,6 +13,7 @@ import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import ShowChartOutlinedIcon from '@mui/icons-material/ShowChartOutlined';
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
 export default function Dashboard() {
 
@@ -36,18 +37,41 @@ export default function Dashboard() {
 				<div className="basis-3/4 px-3">
 					<Navbar />
 					<div className="flex my-3">
-						<Card Icon={BarChartOutlinedIcon} bgColor="" txtColor=""/>
-						<Card Icon={ShowChartOutlinedIcon} bgColor="" txtColor=""/>
-						<Card Icon={EastOutlinedIcon} bgColor="black" txtColor='white'/>
+						<Card Icon={BarChartOutlinedIcon} bgColor="" txtColor="" title="Average Rating" num="8/10"/>
+						<Card Icon={ShowChartOutlinedIcon} bgColor="" txtColor="" title="Average tasks" num="12 tasks"/>
+						<Card Icon={EastOutlinedIcon} bgColor="black" txtColor='white' title="You have new messages!" num=""/>
 					</div>
 					<div className="flex my-4">
-						<div className="basis-2/3 max-h-max mr-3 p-2 rounded-lg border">
-							<div className="flex justify-between my-3 font-semibold"> <h1>This Week</h1>
+						<div className="basis-2/3 max-h-max mr-3 p-1 rounded-lg border">
+							<div className="flex justify-between my-3"> <h1 className="font-semibold">This Week</h1>
 								<p>...</p>
 							</div>
 							<BarChartComponent />
 						</div>
-						<div className="basis-1/3 border max-h-max mr-3 rounded-lg">Activities</div>
+						<div className="basis-1/3 border max-h-max mr-3 rounded-lg p-1">
+							<div className="flex justify-between my-3">
+								<h1 className="font-semibold">Activities</h1>
+								<div className="flex items-center">
+									<p className="text-sm pr-1">Week</p>
+									<ExpandMoreOutlinedIcon style={{fontSize:"15px"}} />
+								</div>
+							</div>
+							<div>76%</div>
+							<div className="flex flex-col mt-4 text-sm">
+								<div className="flex justify-between border-b pb-1">
+									<div className="flex items-center">
+										<div className="w-3 h-3 bg-[#df6690] rounded-sm mr-1"></div><p>Study</p>
+									</div>
+									<p>57%</p>
+								</div>
+								<div className="flex justify-between pt-1">
+									<div className="flex items-center">
+										<div className="w-3 h-3 bg-[#ffc75b] rounded-sm mr-1"></div><p>Exams</p>
+									</div>
+									<p>19%</p>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div>
 						<div className="flex items-center">
@@ -69,13 +93,13 @@ export default function Dashboard() {
 					<p className="text-xs mt-2 font-light mb-2">{date}</p>
 					<div className="flex flex-col">
 						{events.map((event) => (
-							<Event timestamp={event.timestamp} title={event.title} content={event.content} />
+							<Event key={event.title} timestamp={event.timestamp} title={event.title} content={event.content} />
 							))
 						}
 					</div>
 					<button className="border rounded-xl py-1 w-full mb-5 mt-3 border-black">All events</button>
 					<div className="bg-[#1b1b1b] rounded-xl h-2/5 flex flex-col items-center justify-center px-3">
-						<h1 className="text-[white] text-xl mt-16">Buy Premium and get access to new courses</h1>
+						<h1 className="text-[white] text-xl mt-12">Buy Premium and get access to new courses</h1>
 						<button className="bg-[#ffc75b] w-full rounded-lg h-8 mt-4">More detailed</button>
 					</div>
 			        </div>
