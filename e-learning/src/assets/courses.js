@@ -7,14 +7,14 @@ const courses = [
 		icon: ViewCompactAltOutlinedIcon,
 		name: 'Web Design',
 		lesson: 10,
-		progress: '',
+		progress: 50,
 	},
 	{
 		id: '2',
 		icon: JavascriptOutlinedIcon,
 		name: 'JavaScript',
 		lesson: 7,
-		progress: '',
+		progress: 27,
 	},
 ];
 
