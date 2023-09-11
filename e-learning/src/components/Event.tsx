@@ -6,7 +6,7 @@ export default function Event({timestamp, title, content}) {
 			</div>
 			<div className="basis-2/3 flex-end flex">
 				<div className="h-8 w-0.5 bg-[black] mr-1.5"></div>
-				<div>
+				<div className="cursor-pointer">
 					<p className="font-light">{title}</p>
 					<p className="font-semibold">{content}</p>
 				</div>
