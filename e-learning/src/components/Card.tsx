@@ -3,13 +3,13 @@ export default function Card({ Icon, bgColor, txtColor, title, num }) {
     <div
       className={`flex mr-3 rounded-md py-3 items-center basis-1/3 ${
         bgColor === 'black'
-          ? 'bg-[black] text-[white] cursor-pointer px-2'
+          ? 'bg-[black] text-[white] cursor-pointer px-1'
           : 'shadow-md px-4'
       }`}
     >
       <div
         className={`rounded-full mr-2 ${
-          bgColor === 'black' ? 'bg-[black] mr-10 ml-1' : 'p-1 bg-[#d1cdcd]'
+          bgColor === 'black' ? 'bg-[black] mr-8 ml-1' : 'p-1 bg-[#d1cdcd]'
         }`}
       >
         <Icon />

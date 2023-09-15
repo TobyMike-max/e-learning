@@ -1,5 +1,6 @@
 import icon from '../assets/gravatar-icon.jpg';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
@@ -31,7 +32,12 @@ export default function Navbar({ name }) {
     <div className="flex flex-row justify-between items-center">
       <h1 className="text-xl font-semibold">{name}</h1>
       <div className="flex justify-evenly basis-1/5">
-        <NotificationsNoneOutlinedIcon />
+        <Link to="/events">
+          <div className="relative">
+            <span className="bg-[red] h-1 w-1 rounded-full absolute top-1 right-1"></span>
+            <NotificationsNoneOutlinedIcon />
+          </div>
+        </Link>
         <img
           src={url ? url : icon}
           height={30}

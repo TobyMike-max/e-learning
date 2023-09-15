@@ -1,6 +1,15 @@
 import { useState } from 'react';
 
-export default function SideIcons({ name, isActive, onClick, Icon }) {
+export default function SideIcons({
+  id,
+  name,
+  isActive,
+  onClick,
+  Icon,
+  data,
+  setIndex,
+}) {
+  {data && setIndex(id.toString())}
   return (
     <div
       className={`my-5 text-sm cursor-pointer ${

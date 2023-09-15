@@ -1,5 +1,4 @@
-const ProgressBar = ({ progress }) => {
-  console.log(progress);
+const ProgressBar = ({ progress }) => {	
   return (
     <div className="h-2 w-36 bg-gray-300 rounded-full mr-2">
       <div
