@@ -1,4 +1,4 @@
-import { Route, Routes, Link, Navigate, useNavigate } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Card from '../components/Card';
@@ -6,8 +6,8 @@ import BarChartComponent from '../components/BarChart';
 import Course from '../components/Courses';
 import Event from '../components/Event';
 import RoundProgressBar from '../components/RoundProgressBar';
-import courses from '../assets/courses';
-import events from '../assets/events';
+import courses from '../assets/courses.ts';
+import events from '../assets/events.ts';
 import Chats from './Chats';
 import Courses from './Courses';
 import Grades from './Grades';
@@ -36,7 +36,6 @@ export default function Dashboard() {
       <Routes>
         <Route
           path="/dashboard"
-          exact
           element={
             <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-row px-3">
               <div className="basis-3/4 px-3">
@@ -45,14 +44,12 @@ export default function Dashboard() {
                   <Card
                     Icon={BarChartOutlinedIcon}
                     bgColor=""
-                    txtColor=""
                     title="Average Rating"
                     num="8/10"
                   />
                   <Card
                     Icon={ShowChartOutlinedIcon}
                     bgColor=""
-                    txtColor=""
                     title="Average tasks"
                     num="12 tasks"
                   />
@@ -60,7 +57,6 @@ export default function Dashboard() {
                     <Card
                       Icon={EastOutlinedIcon}
                       bgColor="black"
-                      txtColor="white"
                       title="You have new messages!"
                       num=""
                     />

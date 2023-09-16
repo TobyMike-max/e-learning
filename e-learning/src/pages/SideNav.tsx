@@ -5,9 +5,9 @@ import { NavLink, Link } from 'react-router-dom';
 import SideIcons from '../components/SideIcons';
 
 export default function SideNav() {
-  const [dashboardIndex, setIndex] = useState('1');
+	const [dashboardIndex, setIndex] = useState<string>('1');
 
-  function handleClick(index) {
+  const handleClick = (index: number): void => {
     setIndex(index.toString());
   }
 
@@ -18,7 +18,7 @@ export default function SideNav() {
       </Link>
       {fake.map((item, idx) => (
         <NavLink to={`/${item.name}`.toLowerCase()} key={item.id}>
-          {({ isActive, isPending }) => (
+          {({ isActive }) => (
             <SideIcons
               id={item.id}
               setIndex={setIndex}
