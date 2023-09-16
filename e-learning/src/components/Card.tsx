@@ -1,4 +1,11 @@
-export default function Card({ Icon, bgColor, txtColor, title, num }) {
+interface CardProps {
+	Icon: React.ElementType;
+	bgColor: string;
+	title: string;
+	num: string;
+}
+
+const Card: React.FC<CardProps> = ({ Icon, bgColor, title, num }) => {
   return (
     <div
       className={`flex mr-3 rounded-md py-3 items-center basis-1/3 ${
@@ -21,3 +28,5 @@ export default function Card({ Icon, bgColor, txtColor, title, num }) {
     </div>
   );
 }
+
+export default Card;

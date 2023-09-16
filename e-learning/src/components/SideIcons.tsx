@@ -1,6 +1,14 @@
-import { useState } from 'react';
+interface SideIconsProps {
+	id: number;
+	name: string;
+	isActive: boolean;
+	onClick: () => void;
+	Icon: React.ElementType;
+	data: boolean;
+	setIndex: (id: string) => void;
+}
 
-export default function SideIcons({
+	const SideIcons: React.FC<SideIconsProps> = ({
   id,
   name,
   isActive,
@@ -8,7 +16,7 @@ export default function SideIcons({
   Icon,
   data,
   setIndex,
-}) {
+}) => {
   {data && setIndex(id.toString())}
   return (
     <div
@@ -24,3 +32,5 @@ export default function SideIcons({
     </div>
   );
 }
+
+export default SideIcons;

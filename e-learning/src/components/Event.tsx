@@ -1,4 +1,10 @@
-export default function Event({ timestamp, title, content }) {
+interface EventProps {
+	timestamp: string;
+	title: string;
+	content: string;
+}
+
+const Event: React.FC<EventProps> = ({ timestamp, title, content }) => {
   return (
     <div className="flex text-xs py-3 border-t justify-between">
       <div className="basis-1/3 flex">
@@ -14,3 +20,5 @@ export default function Event({ timestamp, title, content }) {
     </div>
   );
 }
+
+export default Event;

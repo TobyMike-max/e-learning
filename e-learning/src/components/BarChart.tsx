@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import data from '../assets/chart.js';
+import data from '../assets/chart.ts';
 
 export default function BarChartComponent() {
   return (

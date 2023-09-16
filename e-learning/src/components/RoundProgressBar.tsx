@@ -1,4 +1,8 @@
-export default function RoundProgressBar({ percentage }) {
+interface RoundProgressBarProps {
+	percentage: number;
+}
+
+const RoundProgressBar: React.FC<RoundProgressBarProps> = ({ percentage }) => {
   const circumference: number = 2 * Math.PI * 40;
   const dashOffset: number = circumference - (percentage / 100) * circumference;
 
@@ -36,3 +40,5 @@ export default function RoundProgressBar({ percentage }) {
     </div>
   );
 }
+
+export default RoundProgressBar;

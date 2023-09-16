@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
-export default function Navbar({ name }) {
+interface NavbarProps {
+	name: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ name }) => {
   const [url, setUrl] = useState('');
 
   useEffect(() => {
@@ -49,3 +53,5 @@ export default function Navbar({ name }) {
     </div>
   );
 }
+
+export default Navbar;

@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 
-export default function Course({ Icon, name, lesson, progress }) {
+interface CourseProps {
+	Icon: React.ElementType;
+	name: string;
+	lesson: number;
+	progress: number;
+}
+
+const Course: React.FC<CourseProps> = ({ Icon, name, lesson, progress }) => {
   return (
     <div className="flex shadow-lg my-1 justify-between p-3 items-center rounded-lg">
       <div className="flex items-center">
@@ -29,3 +36,5 @@ export default function Course({ Icon, name, lesson, progress }) {
     </div>
   );
 }
+
+export default Course;
