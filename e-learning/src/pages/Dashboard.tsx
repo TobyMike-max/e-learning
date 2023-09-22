@@ -32,15 +32,15 @@ export default function Dashboard() {
 
   return (
     <div className="container flex flex-row h-screen max-w-full">
-      <SideNav />
+      <SideNav display='' />
       <Routes>
         <Route
           path="/dashboard"
           element={
-            <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-row px-3">
+            <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-col px-3 sm:flex-row">
               <div className="basis-3/4 px-3">
                 <Navbar name="Dashboard" />
-                <div className="flex my-3">
+                <div className="flex my-3 flex-row">
                   <Card
                     Icon={BarChartOutlinedIcon}
                     bgColor=""
@@ -62,7 +62,7 @@ export default function Dashboard() {
                     />
                   </Link>
                 </div>
-                <div className="flex my-4">
+                <div className="flex my-4 flex-col sm:flex-row">
                   <div className="basis-2/3 max-h-max mr-3 p-1 rounded-lg border">
                     <div className="flex justify-between my-3">
                       {' '}
@@ -118,7 +118,7 @@ export default function Dashboard() {
                   ))}
                 </div>
               </div>
-              <div className="basis-1/4">
+              <div className="basis-1/4 px-3 py-5 sm:py-0">
                 <div className="flex justify-between">
                   <h1 className="text-xl font-semibold">Calender</h1>
                   <div className="rounded-full shadow-md p-1 flex items-center cursor-pointer">

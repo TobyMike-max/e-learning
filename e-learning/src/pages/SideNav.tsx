@@ -4,7 +4,7 @@ import fake from '../assets/nav';
 import { NavLink, Link } from 'react-router-dom';
 import SideIcons from '../components/SideIcons';
 
-export default function SideNav() {
+export default function SideNav({ display }) {
 	const [dashboardIndex, setIndex] = useState<string>('1');
 
   const handleClick = (index: number): void => {
@@ -12,7 +12,7 @@ export default function SideNav() {
   }
 
   return (
-    <div className="relative basis-1/6 py-5 bg-[#1b1b1b] text-[#fff] pl-7">
+    <div className={`relative basis-1/6 py-5 bg-[#1b1b1b] text-[#fff] pl-7 ${display ? 'block': 'hidden sm:block'}`}>
       <Link to="/dashboard">
         <Logo />
       </Link>
