@@ -10,7 +10,7 @@ const Card: React.FC<CardProps> = ({ Icon, bgColor, title, num }) => {
     <div
       className={`flex mr-3 rounded-md py-3 items-center basis-1/3 ${
         bgColor === 'black'
-          ? 'bg-[black] text-[white] cursor-pointer px-1'
+          ? 'bg-[black] text-[white] cursor-pointer px-1 h-full'
           : 'shadow-md px-4'
       }`}
     >

@@ -1,6 +1,8 @@
 import icon from '../assets/gravatar-icon.jpg';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import HamburgerIcon from './HamburgerIcon';
+import SideNav from '../pages/SideNav';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
@@ -10,6 +12,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ name }) => {
   const [url, setUrl] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,10 +35,19 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
     fetchData();
   }, []);
 
+  const toggleMenu = () => {
+	  setIsMenuOpen(!isMenuOpen);
+  }
+	  
   return (
-    <div className="flex flex-row justify-between items-center">
-      <h1 className="text-xl font-semibold">{name}</h1>
-      <div className="flex justify-evenly basis-1/5">
+	  <>
+	  { isMenuOpen && <SideNav display='true' /> }
+	  <div className="flex flex-row justify-between items-center">
+		  <div className="flex justify-between basis-2/6">
+			  <HamburgerIcon onClick={toggleMenu} isOpen={isMenuOpen} />
+			  <h1 className="text-xl font-semibold">{name}</h1>
+		  </div>
+      <div className="flex justify-evenly basis-2/6">
         <Link to="/events">
           <div className="relative">
             <span className="bg-[red] h-1 w-1 rounded-full absolute top-1 right-1"></span>
@@ -51,6 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
         <ExpandMoreOutlinedIcon />
       </div>
     </div>
+    </>
   );
 }
 

@@ -7,7 +7,7 @@ const RoundProgressBar: React.FC<RoundProgressBarProps> = ({ percentage }) => {
   const dashOffset: number = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="relative w-36 h-36">
+    <div className="relative sm:w-36 sm:h-36 w-40 h-40">
       <svg
         className="absolute top-0 left-0 w-full h-full"
         viewBox="0 0 100 100"
