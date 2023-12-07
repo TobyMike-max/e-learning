@@ -1,8 +1,8 @@
 interface ProgressBarProps {
-	progress: number;
+  progress: number;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {	
+const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
   return (
     <div className="h-2 w-36 bg-gray-300 rounded-full mr-2">
       <div

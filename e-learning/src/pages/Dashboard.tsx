@@ -1,6 +1,6 @@
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
-import { AuthContext } from '../context/authContext'
+import { AuthContext } from '../context/authContext';
 import Navbar from '../components/Navbar';
 import Card from '../components/Card';
 import BarChartComponent from '../components/BarChart';
@@ -20,22 +20,28 @@ export default function Dashboard() {
   const date = new Date().toDateString();
   const percentage: number = 76;
 
-  const { currentUser } = useContext(AuthContext)
-  /**
-  const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
+
+  /**const navigate = useNavigate();
 
   useEffect(() => {
     if (window.location.pathname === '/') navigate('/dashboard');
     }, [navigate]);
-   **/
-
+ 
+  useEffect(() => {
+	  getCourses();
+  }, [courses])
+  **/
   return (
-    <div className="flex flex-row h-screen max-w-full">
+    <div className="flex flex-row min-h-screen max-w-full mb-7">
       <SideNav display="" />
       <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-col px-3 sm:flex-row">
-	      <div className="basis-3/4 px-3">
-		      <Navbar name="Dashboard" />
-		      <p className="font-semibold text-base"> Welcome, { currentUser.username }</p>
+        <div className="basis-3/4 px-3">
+          <Navbar name="Dashboard" />
+          <p className="font-semibold text-base">
+            {' '}
+            Welcome, {currentUser.username}
+          </p>
           <div className="flex my-3 flex-row">
             <Card
               Icon={BarChartOutlinedIcon}

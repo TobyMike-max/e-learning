@@ -1,7 +1,7 @@
 interface EventProps {
-	timestamp: string;
-	title: string;
-	content: string;
+  timestamp: string;
+  title: string;
+  content: string;
 }
 
 const Event: React.FC<EventProps> = ({ timestamp, title, content }) => {
@@ -19,6 +19,6 @@ const Event: React.FC<EventProps> = ({ timestamp, title, content }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Event;

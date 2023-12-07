@@ -1,5 +1,5 @@
 interface RoundProgressBarProps {
-	percentage: number;
+  percentage: number;
 }
 
 const RoundProgressBar: React.FC<RoundProgressBarProps> = ({ percentage }) => {
@@ -39,6 +39,6 @@ const RoundProgressBar: React.FC<RoundProgressBarProps> = ({ percentage }) => {
       </div>
     </div>
   );
-}
+};
 
 export default RoundProgressBar;
