@@ -1,14 +1,14 @@
 interface SideIconsProps {
-	id: number;
-	name: string;
-	isActive: boolean;
-	onClick: () => void;
-	Icon: React.ElementType;
-	data: boolean;
-	setIndex: (id: string) => void;
+  id: number;
+  name: string;
+  isActive: boolean;
+  onClick: () => void;
+  Icon: React.ElementType;
+  data: boolean;
+  setIndex: (id: string) => void;
 }
 
-	const SideIcons: React.FC<SideIconsProps> = ({
+const SideIcons: React.FC<SideIconsProps> = ({
   id,
   name,
   isActive,
@@ -17,7 +17,9 @@ interface SideIconsProps {
   data,
   setIndex,
 }) => {
-  {data && setIndex(id.toString())}
+  {
+    data && setIndex(id.toString());
+  }
   return (
     <div
       className={`my-5 text-sm cursor-pointer ${
@@ -31,6 +33,6 @@ interface SideIconsProps {
       <p className="inline-block">{name}</p>
     </div>
   );
-}
+};
 
 export default SideIcons;

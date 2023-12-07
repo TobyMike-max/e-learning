@@ -4,6 +4,8 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
 import PentagonOutlinedIcon from '@mui/icons-material/PentagonOutlined';
 import EventIcon from '@mui/icons-material/Event';
+import AddTaskIcon from '@mui/icons-material/AddTask';
+
 
 interface fakeProps {
 	id: number;
@@ -35,10 +37,15 @@ const fake:fakeProps[] = [
   {
     id: 5,
     name: 'Events',
-    icon: EventIcon,
+    icon: AddTaskIcon,
   },
   {
     id: 6,
+    name: 'Calender',
+    icon: EventIcon,
+  },
+  {
+    id: 7,
     name: 'Settings',
     icon: SettingsOutlinedIcon,
   },

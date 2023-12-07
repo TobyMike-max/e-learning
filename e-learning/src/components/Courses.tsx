@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 
 interface CourseProps {
-	Icon: React.ElementType;
-	name: string;
-	lesson: number;
-	progress: number;
+  Icon: React.ElementType;
+  name: string;
+  lesson: number;
+  progress: number;
 }
 
 const Course: React.FC<CourseProps> = ({ Icon, name, lesson, progress }) => {
@@ -35,6 +35,6 @@ const Course: React.FC<CourseProps> = ({ Icon, name, lesson, progress }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Course;

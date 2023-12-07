@@ -1,6 +1,5 @@
-import { Route, Routes, Link, useNavigate } from 'react-router-dom';
-import { useEffect, useContext } from 'react';
-import { AuthContext } from '../context/authContext'
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/authContext';
 import Navbar from '../components/Navbar';
 import Card from '../components/Card';
 import BarChartComponent from '../components/BarChart';
@@ -20,9 +19,9 @@ export default function Dashboard() {
   const date = new Date().toDateString();
   const percentage: number = 76;
 
-  const { currentUser } = useContext(AuthContext)
-  /**
-  const navigate = useNavigate();
+  const { currentUser, isMenuOpen } = useAuth();
+
+  /**const navigate = useNavigate();
 
   useEffect(() => {
     if (window.location.pathname === '/') navigate('/dashboard');
@@ -30,12 +29,15 @@ export default function Dashboard() {
    **/
 
   return (
-    <div className="flex flex-row h-screen max-w-full">
+    <div className="flex flex-row min-h-screen max-w-full mb-7">
       <SideNav display="" />
       <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-col px-3 sm:flex-row">
-	      <div className="basis-3/4 px-3">
-		      <Navbar name="Dashboard" />
-		      <p className="font-semibold text-base"> Welcome, { currentUser.username }</p>
+        <div className="basis-3/4 px-3">
+          <Navbar name="Dashboard" />
+          <p className="font-semibold text-base">
+            {' '}
+            Welcome, {currentUser.username}
+          </p>
           <div className="flex my-3 flex-row">
             <Card
               Icon={BarChartOutlinedIcon}
@@ -58,7 +60,7 @@ export default function Dashboard() {
               />
             </Link>
           </div>
-          <div className="flex my-4 flex-col sm:flex-row">
+          <div className={`${isMenuOpen ? 'hidden' : ''} flex my-4 flex-col sm:flex-row`}>
             <div className="basis-2/3 max-h-max mr-3 p-1 rounded-lg border">
               <div className="flex justify-between my-3">
                 {' '}
@@ -114,12 +116,12 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
-        <div className="basis-1/4 px-3 py-5 sm:py-0">
+        <div className={`${isMenuOpen ? 'hidden' : ''} basis-1/4 px-3 py-5 sm:py-0`}>
           <div className="flex justify-between">
             <h1 className="text-xl font-semibold">Calender</h1>
-            <div className="rounded-full shadow-md p-1 flex items-center cursor-pointer">
+	    <Link to="/calender"> <div className="rounded-full shadow-md p-1 flex items-center cursor-pointer">
               <CalendarMonthOutlinedIcon />
-            </div>
+	      </div></Link>
           </div>
           <p className="text-xs mt-2 font-light mb-2">{date}</p>
           <div className="flex flex-col">
