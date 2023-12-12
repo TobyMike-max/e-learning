@@ -51,7 +51,8 @@ export const register = async (req, res) => {
 
 		return res.cookie('accessToken', token, {
 			maxAge: maxAge * 1000,
-			httpOnly: true
+			httpOnly: true,
+			sameSite: "none", secure: "true",
 		}).status(200).json({text: "User has been created", name: insertUser });
 
 	} catch(err) {
@@ -81,6 +82,7 @@ export const login = async (req, res) => {
 		res.cookie("accessToken", token, {
 			maxAge: maxAge * 1000,
 			httpOnly: true,
+			sameSite: "none", secure: "true",
 		}).status(200).json(others);
 	} catch(err) {
 		if (err) return res.status(500).json(err)
