@@ -43,7 +43,7 @@ const LessonContent = () => {
 		  percent
 	  }
 	  try {
-		  await axios.put('http://localhost:5000/api/progress/update/', updPro,
+		  await axios.put('https://academyis.onrender.com/api/progress/update/', updPro,
 				  { withCredentials: true },
 				 );
 	  } catch (err) {
@@ -74,7 +74,7 @@ const LessonContent = () => {
   useEffect(() => {
 	  try{
 		  const fetchContent = async() => {
-			  const res = await axios.get(`http://localhost:5000/api/lessons/${lessonId}`, {
+			  const res = await axios.get(`https://academyis.onrender.com/api/lessons/${lessonId}`, {
 				  withCredentials: true,
 			  });
 			  //console.log(res.data[0])

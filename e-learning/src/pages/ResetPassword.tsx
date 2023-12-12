@@ -11,7 +11,7 @@ const ResetPassword = () => {
   const handlePasswordReset = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/auth/reset_password',
+	      'https://academyis.onrender.com/api/auth/reset_password',
         { password },
         {
           withCredentials: true,

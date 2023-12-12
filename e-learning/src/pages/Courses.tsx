@@ -47,7 +47,7 @@ const Courses = () => {
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/courses/add', courseData, {
+	    await axios.post('https://academyis.onrender.com/api/courses/add', courseData, {
         withCredentials: true,
       });
       setCourseData({

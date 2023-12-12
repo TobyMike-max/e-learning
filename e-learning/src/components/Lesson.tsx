@@ -45,7 +45,7 @@ const Lesson: React.FC<LessonProps> = ({ id, name, content, dur, u_id, createdAt
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.put('http://localhost:5000/api/lessons/update/', lessonData, {
+	    await axios.put('https://academyis.onrender.com/api/lessons/update/', lessonData, {
         withCredentials: true,
       });
       setShow(false);
@@ -65,7 +65,7 @@ const Lesson: React.FC<LessonProps> = ({ id, name, content, dur, u_id, createdAt
   const handleDelete = async () => {
     try {
       await axios.delete(
-        'http://localhost:5000/api/lessons/delete?l_id=' + id,
+	      'https://academyis.onrender.com/api/lessons/delete?l_id=' + id,
         { withCredentials: true },
       );
     } catch (err) {
@@ -76,7 +76,7 @@ const Lesson: React.FC<LessonProps> = ({ id, name, content, dur, u_id, createdAt
   const handleStart = async () => {
 	  try {
 		  await axios.get(
-			  `http://localhost:5000/api/progress/add?uId=${currentUser.user_id}&lId=${id}&curPag=${currentPage}&perCom=${calPercent}&totPag=${totalPages}`,
+			  `https://academyis.onrender.com/api/progress/add?uId=${currentUser.user_id}&lId=${id}&curPag=${currentPage}&perCom=${calPercent}&totPag=${totalPages}`,
 				  { withCredentials: true },
 		  );
 	    navigate(`/lesson/${id}`)

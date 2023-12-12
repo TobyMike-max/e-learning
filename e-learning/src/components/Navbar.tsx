@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
       const res = await data.text();
       const resp = JSON.parse(res);
       const i = Math.floor(Math.random() * (14 - 0 + 1) + 1);
-      setUrl(resp.asset_ids[i].thumbnailSrc);
+      setUrl(resp.asset_ids[i]?.thumbnailSrc);
     };
     fetchData();
   }, []);
@@ -45,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
 
   const signout = async () => {
     try {
-      await axios.get('http://localhost:5000/api/auth/logout', {
+	    await axios.get('https://academyis.onrender.com/api/auth/logout', {
         withCredentials: true,
       });
       localStorage.removeItem('user');

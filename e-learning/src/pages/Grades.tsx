@@ -18,7 +18,7 @@ const Grades = () => {
 
   useEffect(() => {
 	  const fetchData = async() => {
-		  const res = await axios.get(`http://localhost:5000/api/progress/courses_prog/${currentUser.user_id}`, {
+		  const res = await axios.get(`https://academyis.onrender.com/api/progress/courses_prog/${currentUser.user_id}`, {
 			  withCredentials: true,
 		  });
 		  setCourseProg(res.data);

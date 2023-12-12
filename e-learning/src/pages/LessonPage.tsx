@@ -36,13 +36,13 @@ const LessonPage = () => {
   useEffect(() => {
     const fetchLessons = async () => {
       const res = await axios.get(
-        'http://localhost:5000/api/lessons/show?c_id=' + courseId,
+	      'https://academyis.onrender.com/api/lessons/show?c_id=' + courseId,
         {
           withCredentials: true,
         },
       );
       const res2 = await axios.get(
-        'http://localhost:5000/api/courses/course?c_id=' + courseId,
+	      'https://academyis.onrender.com/api/courses/course?c_id=' + courseId,
         { withCredentials: true },
       );
 
@@ -55,7 +55,7 @@ const LessonPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/lessons/add', lessonData, {
+	    await axios.post('https://academyis.onrender.com/api/lessons/add', lessonData, {
         withCredentials: true,
       });
       setShow(false);

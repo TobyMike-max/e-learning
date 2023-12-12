@@ -23,7 +23,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ id, name, desc, start, end, use
   const handleDelete = async () => {
     try {
       await axios.delete(
-        'http://localhost:5000/api/courses/delete?c_id=' + id,
+	      'https://academyis.onrender.com/api/courses/delete?c_id=' + id,
         { withCredentials: true },
       );
     } catch (err) {
@@ -39,7 +39,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ id, name, desc, start, end, use
     try {
       const fetchLessonLen = async () => {
         const res = await axios.get(
-          'http://localhost:5000/api/lessons/count?c_id=' + id,
+		'https://academyis.onrender.com/api/lessons/count?c_id=' + id,
           {
             withCredentials: true,
           },

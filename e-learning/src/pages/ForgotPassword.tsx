@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   const handleForgotPasswordRequest = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/auth/forgot_password',
+	      'https://academyis.onrender.com/api/auth/forgot_password',
         { email },
         {
           withCredentials: true,
