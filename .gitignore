@@ -9,6 +9,7 @@ lerna-debug.log*
 
 e-learning/node_modules/
 e-learning/.env
+e-learning/package-lock.json
 pg_server/node_modules/
 pg_server/.env
 pg_server/package-lock.json
