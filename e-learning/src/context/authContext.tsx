@@ -62,21 +62,21 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
 	 const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
 	const login = async (formData:loginDataProps) => {
-		const res = await axios.post("http://localhost:5000/api/auth/login", formData, {
+		const res = await axios.post("https://academyis.onrender.com/api/auth/login", formData, {
 			withCredentials: true,
 		});
 		setCurrentUser(res.data)
 	}
 
 	const register = async(formData:formDataProps) => {
-		const res = await axios.post('http://localhost:5000/api/auth/register', formData, {
+		const res = await axios.post('https://academyis.onrender.com/api/auth/register', formData, {
 			withCredentials: true,
 		});
 		setCurrentUser(res.data.name.rows[0])
 	}
 
 	const getCourses = async () => {
-		const res = await axios.get("http://localhost:5000/api/courses/show", {
+		const res = await axios.get("https://academyis.onrender.com/api/courses/show", {
 			withCredentials: true, 
 		})
 		setCourses(res.data)
@@ -88,7 +88,7 @@ export const AuthContextProvider = ({ children }: PropsWithChildren<{}>) => {
 
 	const fetchProgress = async(user_id:number, l_id:number): Promise<AxiosResponse<any, any>> => {
 		const res = await axios.get(
-			`http://localhost:5000/api/progress/show_percent?uId=${user_id}&lId=${l_id}`,
+			`https://academyis.onrender.com/api/progress/show_percent?uId=${user_id}&lId=${l_id}`,
 				{ withCredentials: true }
 		);
 		return res;

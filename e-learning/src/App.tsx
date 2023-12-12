@@ -3,7 +3,7 @@ import Courses from './pages/Courses';
 import Chats from './pages/Chats';
 import Grades from './pages/Grades';
 import Events from './pages/Events';
-import Calender from './pages/Calender';
+import Calendary from './pages/Calendar';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -27,7 +27,7 @@ export default function App() {
 	      <Route path="/chats" element={<Chats />} />
 	      <Route path="/grades" element={<Grades />} />
 	      <Route path="/events" element={<Events />} />
-	      <Route path="/calender" element={<Calender />} />
+	      <Route path="/calender" element={<Calendary />} />
 	      <Route path="/settings" element={<Settings />} />
 	      <Route path="/login" element={<Login />} />
 	      <Route path="/register" element={<Register />} />
