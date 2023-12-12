@@ -11,6 +11,8 @@ e-learning/node_modules/
 e-learning/.env
 pg_server/node_modules/
 pg_server/.env
+pg_server/package-lock.json
+server/node_modules/
 dist/
 .env
 dist-ssr
