@@ -9,10 +9,11 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
 interface NavbarProps {
-  name: string;
+	name: string;
+	authenticateUser: (value:boolean) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ name }) => {
+const Navbar: React.FC<NavbarProps> = ({ name, authenticateUser }) => {
   const navigate = useNavigate();
 
   const { toggleMenu, isMenuOpen } = useAuth();
@@ -49,6 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ name }) => {
         withCredentials: true,
       });
       localStorage.removeItem('user');
+      authenticateUser(false);
       navigate('/login');
     } catch (err) {
       console.log(err);
