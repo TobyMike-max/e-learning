@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const ResetPassword = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState('');
-  const [resp, setRes] = useState([]);
+  const [resp, setRes] = useState('');
   const [err, setErr] = useState<string|null>(null);
 
   const handlePasswordReset = async () => {
@@ -17,19 +17,20 @@ const ResetPassword = () => {
           withCredentials: true,
         },
       );
-      setRes(res.data)
-      if (resp.data) navigate('/login');
+      setRes(res.data.message)
+      setTimeout(() => {
+	      navigate('/login');
+      }, 3000)
     } catch (err:unknown) {
 	    if (axios.isAxiosError(err)) setErr(err.response?.data || 'An error occurred');
 	    else setErr('An error occurred')
     }
   };
 
-
   return (
   <div className="flex flex-col justify-center w-2/4">
-      {(resp.data) ? navigate('/login') : ''}
-      <h2>Password Reset</h2>
+	<h2>Password Reset</h2>
+	{resp}
       <input
         type="password"
         placeholder="New Password"

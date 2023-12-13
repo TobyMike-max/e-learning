@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const [response, setResponse] = useState([]);
+  const [response, setResponse] = useState('');
   const [err, setErr] = useState<string|null>(null);
 
   const handleForgotPasswordRequest = async () => {
@@ -15,7 +15,7 @@ const ForgotPassword = () => {
           withCredentials: true,
         },
       );
-      setResponse(res.data);
+      setResponse(res.data.message);
     } catch (err: unknown) {
 	    if (axios.isAxiosError(err)) setErr(err.response?.data || 'An error occurred');
 	    else setErr('An error occurred')
