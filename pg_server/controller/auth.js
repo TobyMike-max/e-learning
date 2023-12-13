@@ -139,7 +139,7 @@ export const reset_pass = (req, res) => {
 			const q = "UPDATE users SET password_hash = $1 WHERE email = $2"
 
 			const pass = await pool.query(q, [hashedPassword, userInfo.email])
-			return res.status(200).json("Successfully Reset Password")
+			return res.status(200).json({message: 'Successfully Reset Password'})
 		})
 	} catch(err) {
 		if (err) return res.status(500).json(err)
