@@ -3,7 +3,11 @@ import axios from 'axios'
 import { useAuth } from '../context/authContext';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Register = () => {
+interface regProps {
+	authenticateUser: (value:boolean) => void;
+}
+
+const Register: React.FC<regProps> = ({ authenticateUser }) => {
   const { register } = useAuth();
 
   const navigate = useNavigate();
@@ -13,7 +17,8 @@ const Register = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await register(formData);
+	    await register(formData);
+	    authenticateUser(true);
       navigate('/dashboard');
     } catch (err:unknown) {
 	    if (axios.isAxiosError(err)) setErr(err.response?.data || 'An error occurred');

@@ -29,8 +29,12 @@ interface courseProps {
 	username:string;
 	full_name:string;
 }
+ 
+interface calenderProps {
+	authenticateUser: (value:boolean) => void;
+}
 
-const Calendary = () => {
+const Calendary: React.FC<calenderProps> = ({ authenticateUser }) => {
   const { getCourses, courses, isMenuOpen } = useAuth();
   const { defaultDate } = useMemo(
     () => ({
@@ -60,7 +64,7 @@ const Calendary = () => {
     <div className="flex flex-row min-h-screen max-w-full">
       <SideNav display="" />
       <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-col px-3">
-        <Navbar name="Calender" />
+        <Navbar name="Calender" authenticateUser={authenticateUser}/>
         <div className={`${isMenuOpen ? 'hidden' : ''} flex flex-col min-h-screen`}>
           <Calendar
             localizer={localizer}

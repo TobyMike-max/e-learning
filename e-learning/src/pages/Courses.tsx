@@ -20,7 +20,11 @@ interface courProps {
 	full_name:string;
 }
 
-const Courses = () => {
+interface coursesProps {
+	authenticateUser: (value:boolean) => void;
+}
+
+const Courses: React.FC<coursesProps> = ({ authenticateUser }) => {
   const { getCourses, courses, isMenuOpen } = useAuth();
   const [select, setSelect] = useState({
     category_front: '',
@@ -96,7 +100,7 @@ const Courses = () => {
     <div className="flex flex-row min-h-screen max-w-full">
       <SideNav display="" />
       <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-col px-3">
-        <Navbar name="Courses" />
+        <Navbar name="Courses" authenticateUser={authenticateUser}/>
         <label>
           <h1 className="font-semibold">Category</h1>
           <select

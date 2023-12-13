@@ -15,7 +15,10 @@ import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
-export default function Dashboard() {
+interface dashProps {
+	authenticateUser: (value:boolean) => void;
+}
+const Dashboard: React.FC<dashProps> = ({ authenticateUser }) => {
   const date = new Date().toDateString();
   const percentage: number = 76;
 
@@ -25,18 +28,17 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (window.location.pathname === '/') navigate('/dashboard');
-    }, [navigate]);
-   **/
+    }, [navigate]); **/
 
   return (
     <div className="flex flex-row min-h-screen max-w-full mb-7">
       <SideNav display="" />
       <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-col px-3 sm:flex-row">
         <div className="basis-3/4 px-3">
-          <Navbar name="Dashboard" />
+          <Navbar name="Dashboard" authenticateUser={authenticateUser}/>
           <p className="font-semibold text-base">
             {' '}
-            Welcome, {currentUser.username}
+            Welcome, {currentUser?.username}
           </p>
           <div className="flex my-3 flex-row">
             <Card
@@ -154,3 +156,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+export default Dashboard;

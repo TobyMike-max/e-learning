@@ -35,13 +35,13 @@ const SideNav: React.FC<SideNavProps> = ({ display }) => {
         </div>
       </div>
       {fake.map((item, idx) => (
-        <NavLink to={`/${item.name}`.toLowerCase()} key={item.id}>
+        <NavLink to={`/${item?.name}`.toLowerCase()} key={item.id}>
           {({ isActive }) => (
             <SideIcons
               id={item.id}
               setIndex={setIndex}
               data={isActive}
-              name={item.name}
+              name={item?.name}
               key={idx}
               isActive={item.id.toString() === dashboardIndex}
               onClick={() => handleClick(item.id)}

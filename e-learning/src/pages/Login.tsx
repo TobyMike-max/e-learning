@@ -3,7 +3,10 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
-const Login = () => {
+interface loginProps {
+	authenticateUser: (value:boolean) => void;
+}
+const Login: React.FC<loginProps> = ({ authenticateUser }) => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -22,6 +25,7 @@ const Login = () => {
     try {
       await login(formData);
       navigate('/dashboard');
+      authenticateUser(true);
     } catch (err:unknown) {
 	    if (axios.isAxiosError(err)) setErr(err.response?.data || 'An error occurred');
 	    else setErr('An error occurred')

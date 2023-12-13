@@ -12,7 +12,10 @@ interface course_progProps {
 	overall_progress: string;
 }
 
-const Grades = () => {
+interface gradeProps {
+	authenticateUser: (value:boolean) => void;
+}
+const Grades: React.FC<gradeProps> = ({ authenticateUser }) => {
   const [course_prog, setCourseProg] = useState([]);
   const { currentUser } = useAuth();
 
@@ -29,7 +32,7 @@ const Grades = () => {
     <div className="flex flex-row min-h-screen max-w-full">
       <SideNav display="" />
       <div className="basis-5/6 py-5 text-[#1b1b1b] bg-[#fff] flex flex-col px-3">
-        <Navbar name="Grades" />
+        <Navbar name="Grades" authenticateUser={authenticateUser}/>
 	    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center items-stretch">
 		    {course_prog?.filter((cour: course_progProps) => parseInt(cour.overall_progress) > 0).map((course: course_progProps) => (
 		  <div key={course.course_id}>
