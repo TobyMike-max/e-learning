@@ -91,7 +91,7 @@ const Lesson: React.FC<LessonProps> = ({ id, name, content, dur, u_id, createdAt
 		  setProgress(res.data[0]);
 	  }
 	  fetchPro()
-  }, [])
+  }, [showProg])
 
   return (
     <div className="flex flex-col mb-4 w-4/5 relative">

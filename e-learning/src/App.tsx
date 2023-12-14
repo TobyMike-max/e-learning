@@ -14,17 +14,26 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import LessonContent from './pages/LessonContent';
 import Home from './pages/Home';
-import { BrowserRouter as Router, Route, Routes, redirect, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+interface currentUserProps {
+	average_rating: number;
+	created: string;
+	email: string;
+	full_name: string;
+	updated: string;
+	user_id: number;
+	username: string;
+}
+
+const storedUser = localStorage.getItem('user');
+const initialUser: currentUserProps = storedUser ? JSON.parse(storedUser) : "";
 
 const PrivateRoute = ({ isAuthenticated }) => {
-	if (!isAuthenticated) {
-		redirect("/login");
-	}
-	return (
-		<Outlet />
-		);
+	const location = useLocation();
+	if (!initialUser && !isAuthenticated) return <Navigate to='/login' replace state={{ from: location }} />
+	return (<Outlet />)
 }
 
 const App = () => {
@@ -35,12 +44,10 @@ const App = () => {
 		setAuthenticated(value);
 	};
 	return (
-		<Router>
-			<QueryClientProvider client={queryClient}>
+	   <Router>
+	    <QueryClientProvider client={queryClient}>
 	    <Routes>
 	      <Route path="/" element={<Home />} />
-	      <Route path="/login" element={<Login authenticateUser={authenticateUser} />} />
-	      <Route path="/register" element={<Register authenticateUser={authenticateUser} />} />
 	      <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
 		      <Route path="/dashboard" element={<Dashboard authenticateUser={authenticateUser} />} />
 		      <Route path="/courses" element={<Courses authenticateUser={authenticateUser} />} />
@@ -55,8 +62,10 @@ const App = () => {
 		      <Route path="/reset_password" element={<ResetPassword />} />
 		      <Route path="/lesson/:lessonId" element={<LessonContent />} />
 	      </Route>
+	      <Route path="/login" element={<Login authenticateUser={authenticateUser} />} />
+	      <Route path="/register" element={<Register authenticateUser={authenticateUser} />} />
 	      </Routes>
-      </QueryClientProvider>
+	   </QueryClientProvider>
     </Router>
   );
 }
