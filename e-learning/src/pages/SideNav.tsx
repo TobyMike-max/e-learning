@@ -14,7 +14,8 @@ const SideNav: React.FC<SideNavProps> = ({ display }) => {
 
   const { toggleMenu } = useAuth();
   const handleClick = (index: number): void => {
-    setIndex(index.toString());
+	  setIndex(index.toString());
+	  toggleMenu();
   };
 
   return (
