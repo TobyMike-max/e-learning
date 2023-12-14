@@ -14,6 +14,8 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import LessonContent from './pages/LessonContent';
 import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import { BrowserRouter as Router, Route, Routes, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -47,7 +49,9 @@ const App = () => {
 	   <Router>
 	    <QueryClientProvider client={queryClient}>
 	    <Routes>
-	      <Route path="/" element={<Home />} />
+	    <Route path="/" element={<Home />} />
+	    <Route path="/about" element={<About />} />
+	    <Route path="/contact" element={<Contact />} />
 	      <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
 		      <Route path="/dashboard" element={<Dashboard authenticateUser={authenticateUser} />} />
 		      <Route path="/courses" element={<Courses authenticateUser={authenticateUser} />} />

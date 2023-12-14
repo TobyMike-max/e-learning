@@ -26,7 +26,7 @@ const SideNav: React.FC<SideNavProps> = ({ display }) => {
       }`}
     >
       <div className="flex justify-between pr-4 pt-2 -mb-3">
-        <Link to="/dashboard">
+        <Link to="/">
           <Logo />
         </Link>
         <div className="w-6 h-6 relative sm:hidden" onClick={toggleMenu}>

@@ -10,16 +10,16 @@ const Home: React.FC = () => {
 		<div className="text-white font-bold text-xl"><Logo /></div>
 
           <div className="flex space-x-4">
-            <Link to="#" className="text-white hover:text-gray-300">
+	    <Link to="/" className="text-white hover:text-gray-300">
               Home
             </Link>
 	    <Link to="/courses" className="text-white hover:text-gray-300">
               Courses
             </Link>
-            <Link to="#" className="text-white hover:text-gray-300">
+	    <Link to="/about" className="text-white hover:text-gray-300">
               About Us
             </Link>
-            <Link to="#" className="text-white hover:text-gray-300">
+	    <Link to="/contact" className="text-white hover:text-gray-300">
               Contact
             </Link>
           </div>
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
       {/* Footer */}
       <footer className="mt-auto py-4 bg-gray-200 w-full text-center">
         <p className="text-gray-600">
-          &copy; 2023 Academyis. All rights reserved. | Terms of Service |
+          &copy; {new Date().getFullYear()} Academyis. All rights reserved. | Terms of Service |
           Privacy Policy
         </p>
       </footer>
