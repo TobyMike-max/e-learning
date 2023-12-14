@@ -29,10 +29,14 @@ interface currentUserProps {
 	username: string;
 }
 
+interface PrivateRouteProps {
+	  isAuthenticated: boolean;
+}
+
 const storedUser = localStorage.getItem('user');
 const initialUser: currentUserProps = storedUser ? JSON.parse(storedUser) : "";
 
-const PrivateRoute = ({ isAuthenticated }) => {
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ isAuthenticated }) => {
 	const location = useLocation();
 	if (!initialUser && !isAuthenticated) return <Navigate to='/login' replace state={{ from: location }} />
 	return (<Outlet />)
