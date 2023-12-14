@@ -4,6 +4,7 @@ import CourseCard from '../components/CourseCard';
 import SideNav from './SideNav';
 import { useAuth } from '../context/authContext';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 //import { useQuery } from '@tanstack/react-query';
 
 interface courProps {
@@ -39,6 +40,7 @@ const Courses: React.FC<coursesProps> = ({ authenticateUser }) => {
   });
 
   const [show, setShow] = useState(false);
+  const [err, setErr] = useState<string|null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => {
     setCourseData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -90,8 +92,16 @@ const Courses: React.FC<coursesProps> = ({ authenticateUser }) => {
 **/
 
   useEffect(() => {
-    getCourses();
-  }, []);
+	  const runCourses = async() => {
+		  try {
+			  await getCourses();
+		  } catch(err:unknown) {
+			  if (axios.isAxiosError(err)) setErr(err.response?.data || 'An error occurred');
+			  else setErr('An error occurred')
+		  }
+	  }
+	  runCourses()
+  }, [courses]);
 
   //if (isLoading) return <p>Loading...</p>
   //if (error) return <span>error</span>
@@ -121,7 +131,11 @@ const Courses: React.FC<coursesProps> = ({ authenticateUser }) => {
             <option value="others">Others</option>
           </select>
         </label>
-        <div className={`${isMenuOpen ? 'hidden' : ''} flex flex-col justify-center items-center`}>
+	<div className={`${isMenuOpen ? 'hidden' : ''} flex flex-col justify-center items-center`}>
+		{err && <>
+		<p className="text-red-700 hover:text-red-500 text-lg">{err}</p>
+		{err === "Not logged in" && <p className="text-lg underline"><Link to="/login">Login Here</Link></p>}
+		</>}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center items-stretch">
             {select.category_front !== ''
               ? courses
