@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 })
 app.use(express.json());
 app.use(cors({
-	origin: "http://localhost:5173",
+	origin: "https://academyis.netlify.app/",
 }));
 app.use(cookieParser());
 
