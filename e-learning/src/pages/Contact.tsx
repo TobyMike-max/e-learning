@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
-
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import EmailIcon from '@mui/icons-material/Email';
 
 const Contact: React.FC = () => {
   return (
@@ -35,18 +38,18 @@ const Contact: React.FC = () => {
 
         {/* Social Media Icons */}
         <div className="flex space-x-4 text-4xl text-df6690">
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-facebook-square"></i>
+		<a href="https://twitter.com/TobymikeCreate" target="_blank" rel="noopener noreferrer">
+		  <TwitterIcon />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-twitter-square"></i>
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram-square"></i>
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i>
-          </a>
+	  <a href="https://www.linkedin.com/in/oluwatobiloba-osinubi-9978741b8" target="_blank" rel="noopener noreferrer">
+		  <LinkedInIcon />
+	  </a>
+	  <a href="https://github.com/TobyMike-max/" target="_blank" rel="noopener noreferrer">
+		  <GitHubIcon />
+	  </a>
+	  <a href="mailto:osinubi.michael@gmail.com" target="_blank" rel="noopener noreferrer">
+		  <EmailIcon />
+	  </a>
         </div>
       </div>
 
