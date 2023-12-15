@@ -50,7 +50,7 @@ const LessonPage = () => {
       setInstructor(res2.data[0].instructor_id);
     };
     fetchLessons();
-  }, [lessons]);
+  }, [lessons.length]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
