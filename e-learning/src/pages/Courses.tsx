@@ -101,7 +101,7 @@ const Courses: React.FC<coursesProps> = ({ authenticateUser }) => {
 		  }
 	  }
 	  runCourses()
-  }, [courses]);
+  }, [courses.length]);
 
   //if (isLoading) return <p>Loading...</p>
   //if (error) return <span>error</span>

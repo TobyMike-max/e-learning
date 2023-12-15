@@ -41,8 +41,8 @@ const Register: React.FC<regProps> = ({ authenticateUser }) => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-pink-400">
-      <div className="flex items-center justify-center rounded-md w-3/4 h-[27rem]">
-        <div className="basis-4/6 bg-purple-500 flex flex-col items-center justify-center h-full">
+      <div className="flex flex-col md:flex-row items-center justify-center rounded-md w-3/4 h-[27rem]">
+        <div className="basis-4/6 bg-purple-500 flex flex-col items-center justify-center h-full w-full md:mb-0 mb-8">
           <h1 className="text-xl my-4 font-semibold"> Welcome to Academyis </h1>
           <p className="mt-3 px-4">
             {' '}
@@ -60,7 +60,7 @@ const Register: React.FC<regProps> = ({ authenticateUser }) => {
             </button>
           </Link>
         </div>
-        <div className="basis-4/6 bg-indigo-500 flex flex-col justify-center items-center h-full">
+        <div className="basis-4/6 bg-indigo-500 flex flex-col justify-center items-center h-full w-full">
           <h1 className="text-xl mb-4 font-semibold"> Register </h1>
           <form action="" onSubmit={handleSubmit}>
             <fieldset>
